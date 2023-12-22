@@ -6,6 +6,8 @@ public class BallController : MonoBehaviour
 {
     public int Speed;
     public Rigidbody Physical;
+    public int counter;
+    public int objectsOfNumber;
   
     void Start()
     {
@@ -26,5 +28,15 @@ public class BallController : MonoBehaviour
         
     }
 
-    
+     void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.SetActive(false);
+        counter++;
+
+        if(counter == objectsOfNumber)
+        {
+            Debug.Log("Winner");
+        }
+    }
+
 }
