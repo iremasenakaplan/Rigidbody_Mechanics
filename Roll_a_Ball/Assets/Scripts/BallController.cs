@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class BallController : MonoBehaviour
 {
-    public int Speed;
     public Rigidbody Physical;
+
+    public int Speed;
     public int counter;
     public int objectsOfNumber;
+
+    public Text scoreText;
+    public Text winnerText;
   
     void Start()
     {
@@ -33,9 +39,11 @@ public class BallController : MonoBehaviour
         other.gameObject.SetActive(false);
         counter++;
 
+        scoreText.text = "Score:" + counter;
+
         if(counter == objectsOfNumber)
         {
-            Debug.Log("Winner");
+            winnerText.gameObject.SetActive(true);
         }
     }
 
